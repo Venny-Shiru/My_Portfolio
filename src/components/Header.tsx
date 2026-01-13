@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -83,6 +84,7 @@ const Header = () => {
                 )}
               </a>
             ))}
+            <ThemeToggle />
             <Button variant="outline" size="sm" asChild>
               <a href="/resume.pdf" download className="px-2 whitespace-nowrap">Resume</a>
             </Button>
@@ -125,6 +127,11 @@ const Header = () => {
                 </a>
               ))}
               <div className="px-4 pt-2 space-y-2">
+                <div className="flex items-center gap-2">
+                  <ThemeToggle />
+                  <span className="text-sm text-muted-foreground">Theme</span>
+                </div>
+
                 <Button variant="outline" className="w-full" asChild>
                   <a href="/resume.pdf" download onClick={() => { setIsMobileMenuOpen(false); setIsDownloading(true); setTimeout(() => setIsDownloading(false), 2000); }}>
                     {isDownloading ? 'Downloading...' : 'Download Resume'}
