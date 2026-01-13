@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TypeWriter from "@/components/TypeWriter";
@@ -12,6 +13,8 @@ const roles = [
 ];
 
 const Hero = () => {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Pattern */}
@@ -56,9 +59,16 @@ const Hero = () => {
                 <a
                   href="/resume.pdf"
                   download
+                  onClick={() => { setIsDownloading(true); setTimeout(() => setIsDownloading(false), 2000); }}
                 >
-                  <ArrowDown className="mr-2" />
-                  Download Resume
+                  {isDownloading ? (
+                    'Downloading...'
+                  ) : (
+                    <>
+                      <ArrowDown className="mr-2" />
+                      Download Resume
+                    </>
+                  )}
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
