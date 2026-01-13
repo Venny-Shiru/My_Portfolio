@@ -66,13 +66,17 @@ const Skills = () => {
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
+                {category.skills.map((skill, sIndex) => (
+                  <motion.span
                     key={skill}
+                    initial={{ opacity: 0, y: 6 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.45, delay: sIndex * 0.03 }}
                     className="px-3 py-1.5 bg-secondary text-secondary-foreground text-sm rounded-full hover:bg-primary/10 hover:text-primary transition-colors duration-200"
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>

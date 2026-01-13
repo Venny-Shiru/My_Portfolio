@@ -104,17 +104,26 @@ const Projects = () => {
 
                     <div className="flex flex-wrap gap-2 mb-5">
                       {project.tech.slice(0, 6).map((tech) => (
-                        <span
+                        <motion.span
                           key={tech}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={isInView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ duration: 0.4, delay: 0.05 }}
+                          whileHover={{ scale: 1.03 }}
                           className="px-2.5 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                       {project.tech.length > 6 && (
-                        <span className="px-2.5 py-1 bg-secondary text-muted-foreground text-xs rounded-full">
+                        <motion.span
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={isInView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ duration: 0.4, delay: 0.05 }}
+                          className="px-2.5 py-1 bg-secondary text-muted-foreground text-xs rounded-full"
+                        >
                           +{project.tech.length - 6} more
-                        </span>
+                        </motion.span>
                       )}
                     </div>
 
