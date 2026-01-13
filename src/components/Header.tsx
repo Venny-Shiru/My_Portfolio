@@ -58,12 +58,12 @@ const Header = () => {
       <nav className="container-narrow mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex md:flex-wrap md:items-center gap-4 md:gap-8 overflow-x-auto">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 relative ${
+                className={`text-sm font-medium transition-colors duration-200 relative px-2 whitespace-nowrap ${
                   activeSection === link.href.slice(1)
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary"
@@ -80,10 +80,10 @@ const Header = () => {
               </a>
             ))}
             <Button variant="outline" size="sm" asChild>
-              <a href="/resume.pdf" download>Resume</a>
+              <a href="/resume.pdf" download className="px-2 whitespace-nowrap">Resume</a>
             </Button>
             <Button variant="default" size="sm" asChild>
-              <a href="#contact">Get in Touch</a>
+              <a href="#contact" className="px-2 whitespace-nowrap">Get in Touch</a>
             </Button>
           </div>
 
