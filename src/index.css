@@ -125,6 +125,24 @@
     transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
   }
 
+  /* Motion utilities */
+  .motion-safe\:pop {
+    transform: translateY(0);
+    transition: transform 320ms cubic-bezier(.22,.9,.3,1), box-shadow 220ms ease;
+  }
+  .motion-safe\:pop-hover:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   /* Fancy theme flash overlay for smoother theme switches */
   body::before {
     content: "";
@@ -153,6 +171,26 @@
 
   .card-shadow-hover {
     box-shadow: var(--card-shadow-hover);
+  }
+
+  @keyframes pulseSlow {
+    0% { opacity: 0.6; transform: translateY(0) scale(1); }
+    50% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+    100% { opacity: 0.6; transform: translateY(0) scale(1); }
+  }
+
+  .animate-pulse-slow { animation: pulseSlow 5s ease-in-out infinite; }
+
+  /* subtle animated gradient for hero background */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .bg-animated-gradient {
+    background-size: 300% 300%;
+    animation: gradientShift 20s ease-in-out infinite;
   }
 
   .section-padding {
