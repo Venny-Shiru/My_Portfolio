@@ -17,7 +17,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [isDownloading, setIsDownloading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,8 +132,8 @@ const Header = () => {
                 </div>
 
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="/resume.pdf" download onClick={() => { setIsMobileMenuOpen(false); setIsDownloading(true); setTimeout(() => setIsDownloading(false), 2000); }}>
-                    {isDownloading ? 'Downloading...' : 'Download Resume'}
+                  <a href="/resume.pdf" onClick={() => { setIsMobileMenuOpen(false); }}>
+                    Resume
                   </a>
                 </Button>
                 <Button variant="default" className="w-full" asChild>

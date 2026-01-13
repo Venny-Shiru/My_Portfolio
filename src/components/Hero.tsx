@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TypeWriter from "@/components/TypeWriter";
@@ -13,12 +12,11 @@ const roles = [
 ];
 
 const Hero = () => {
-  const [isDownloading, setIsDownloading] = useState(false);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-background bg-animated-gradient" />
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
       }} />
@@ -28,7 +26,8 @@ const Hero = () => {
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className="order-2 md:order-1"
           >
@@ -54,22 +53,6 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4 mb-8">
               <Button variant="default" size="lg" asChild>
                 <a href="#projects">View My Work</a>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a
-                  href="/resume.pdf"
-                  download
-                  onClick={() => { setIsDownloading(true); setTimeout(() => setIsDownloading(false), 2000); }}
-                >
-                  {isDownloading ? (
-                    'Downloading...'
-                  ) : (
-                    <>
-                      <ArrowDown className="mr-2" />
-                      Download Resume
-                    </>
-                  )}
-                </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <a href="#contact">Contact Me</a>
@@ -107,11 +90,17 @@ const Hero = () => {
 
           {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 md:order-2 flex justify-center"
           >
+            <motion.div
+              animate={{ rotate: [-1, 1, -1] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="relative"
+            >
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
@@ -121,9 +110,10 @@ const Hero = () => {
                 />
               </div>
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-xl" />
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse-slow" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-xl animate-pulse-slow" />
             </div>
+          </motion.div>
           </motion.div>
         </div>
 
