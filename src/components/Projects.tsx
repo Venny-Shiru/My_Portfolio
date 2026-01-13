@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Layers } from "lucide-react";
+import { ExternalLink, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import projectCanvasCrafters from "@/assets/project-canvas-crafters.jpg";
+import projectKilimoAi from "@/assets/project-kilimo-ai.jpg";
+import projectRoadMaintenance from "@/assets/project-road-maintenance.jpg";
 
 const projects = [
   {
@@ -11,7 +14,7 @@ const projects = [
       "A full-stack, real-time collaborative digital canvas application that enables multiple users to create, edit, and interact on shared canvases simultaneously. Features 30+ professional tools, real-time cursor tracking, chat, and permission-based collaboration using WebSockets.",
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Socket.io", "JWT", "Tailwind CSS"],
     liveUrl: "https://canvas-crafters.vercel.app/",
-    color: "from-primary/20 to-accent/20",
+    image: projectCanvasCrafters,
   },
   {
     title: "Kilimo AI",
@@ -19,7 +22,7 @@ const projects = [
       "An AI-powered platform for monitoring land degradation and planning sustainable restoration initiatives. Integrated geospatial mapping, satellite-derived environmental metrics, and machine learning models to analyze soil health, vegetation indices, and erosion risk.",
     tech: ["Next.js", "TypeScript", "Supabase", "Leaflet", "OpenAI", "Vercel AI SDK", "Recharts"],
     liveUrl: "https://v0-remix-of-agri-protect-ai-dashboa.vercel.app/",
-    color: "from-green-500/20 to-emerald-500/20",
+    image: projectKilimoAi,
   },
   {
     title: "Road Maintenance System",
@@ -27,7 +30,7 @@ const projects = [
       "An end-to-end, AI-powered web application for detecting, measuring, and managing road defects from dashcam footage. Features a Python-based computer vision pipeline using YOLOv8 for pothole detection with severity classification.",
     tech: ["Python", "YOLOv8", "OpenCV", "PyTorch", "Node.js", "Express", "MongoDB", "React", "Leaflet"],
     liveUrl: "https://road-maintenance-dashboard.netlify.app/",
-    color: "from-blue-500/20 to-indigo-500/20",
+    image: projectRoadMaintenance,
   },
 ];
 
@@ -63,49 +66,65 @@ const Projects = () => {
               className="group"
             >
               <div className="bg-background rounded-2xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-500">
-                <div className={`p-8 md:p-10 bg-gradient-to-br ${project.color}`}>
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-background/80 backdrop-blur-sm rounded-xl">
-                      <Layers className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex gap-2">
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Image */}
+                  <div className={`relative h-64 md:h-auto overflow-hidden ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-background/20" />
+                  </div>
+
+                  {/* Content */}
+                  <div className={`p-6 md:p-8 flex flex-col justify-center ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <Layers className="w-5 h-5 text-primary" />
+                      </div>
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-background/80 backdrop-blur-sm rounded-lg hover:bg-background transition-colors"
+                        className="p-2 text-muted-foreground hover:text-primary transition-colors"
                         aria-label="View live project"
                       >
-                        <ExternalLink size={18} className="text-foreground" />
+                        <ExternalLink size={18} />
                       </a>
                     </div>
+
+                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-5 leading-relaxed text-sm md:text-base line-clamp-4">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {project.tech.slice(0, 6).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 bg-secondary text-secondary-foreground text-xs rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 6 && (
+                        <span className="px-2.5 py-1 bg-secondary text-muted-foreground text-xs rounded-full">
+                          +{project.tech.length - 6} more
+                        </span>
+                      )}
+                    </div>
+
+                    <Button variant="default" size="sm" className="w-fit" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        View Project
+                        <ExternalLink size={14} className="ml-2" />
+                      </a>
+                    </Button>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-foreground mb-3">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-background/80 backdrop-blur-sm text-foreground text-sm rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <Button variant="default" size="sm" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      View Project
-                      <ExternalLink size={14} className="ml-2" />
-                    </a>
-                  </Button>
                 </div>
               </div>
             </motion.div>

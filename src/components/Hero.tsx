@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import TypeWriter from "@/components/TypeWriter";
 import profilePhoto from "@/assets/profile-photo.jpg";
+
+const roles = [
+  "Junior Full-Stack Developer",
+  "React Developer",
+  "Node.js Developer",
+  "Problem Solver",
+];
 
 const Hero = () => {
   return (
@@ -31,8 +39,8 @@ const Hero = () => {
               <span className="text-gradient">Venny Wanjiru</span>
             </h1>
             
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-6 font-medium">
-              Junior Full-Stack Developer
+            <h2 className="text-xl md:text-2xl text-muted-foreground mb-6 font-medium h-8">
+              <TypeWriter texts={roles} speed={80} deleteSpeed={40} pauseDuration={2500} />
             </h2>
             
             <p className="text-muted-foreground text-base md:text-lg mb-8 leading-relaxed max-w-lg">
