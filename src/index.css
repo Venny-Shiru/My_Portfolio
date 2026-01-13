@@ -125,6 +125,24 @@
     transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
   }
 
+  /* Fancy theme flash overlay for smoother theme switches */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--background);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease-in-out, transform 300ms ease;
+    transform: scale(1.02);
+    z-index: 9999;
+  }
+
+  body.theme-flash::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   .hero-gradient {
     background: var(--hero-gradient);
   }
