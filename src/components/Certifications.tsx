@@ -3,21 +3,28 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Calendar } from "lucide-react";
 
+import certSoftware from "@/assets/Full-Stack Development MERN Stack Certificate.pdf";
+import certAI from "@/assets/OIAI-Certificate-Venny-Wanjiru.pdf";
+import certHardware from "@/assets/Computer Hardware Basics Badge.pdf";
+
 const certifications = [
   {
     title: "Software Development",
     issuer: "Power Learn Project Africa",
     period: "Feb 2025 - Jul 2025",
+    file: certSoftware,
   },
   {
     title: "AI Literacy Certified Course",
     issuer: "Ottermans Institute",
     period: "Sep 2025 - Oct 2025",
+    file: certAI,
   },
   {
     title: "Computer Hardware Certification",
     issuer: "CISCO Networking Academy",
     period: "Aug 2023 - Sep 2023",
+    file: certHardware,
   },
 ];
 
@@ -58,6 +65,19 @@ const Certifications = () => {
                 <Calendar size={12} />
                 <span>{cert.period}</span>
               </div>
+
+              {cert.file && (
+                <div className="mt-4">
+                  <a
+                    href={cert.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-2 bg-primary text-background rounded-md text-sm"
+                  >
+                    View Certificate
+                  </a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

@@ -3,6 +3,8 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
 
+import degreePDF from "@/assets/Degree Certificate.pdf";
+
 const Education = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -62,6 +64,17 @@ const Education = () => {
                     <span className="text-sm font-medium text-primary">
                       Second Class Honours (Upper Division)
                     </span>
+                  </div>
+
+                  <div className="mt-4">
+                    <a
+                      href={degreePDF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-2 border border-primary text-primary rounded-md text-sm"
+                    >
+                      View Degree
+                    </a>
                   </div>
                 </div>
               </div>

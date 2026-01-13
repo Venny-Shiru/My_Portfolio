@@ -3,6 +3,7 @@ import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TypeWriter from "@/components/TypeWriter";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { toast } from "@/components/ui/sonner";
 
 const roles = [
   "Junior Full-Stack Developer",
@@ -53,9 +54,23 @@ const Hero = () => {
                 <a href="#projects">View My Work</a>
               </Button>
               <Button variant="outline" size="lg" asChild>
+                <a
+                  href="/resume.pdf"
+                  download
+                  onClick={() => toast.success("Resume download started")}
+                >
+                  <ArrowDown className="mr-2" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
                 <a href="#contact">Contact Me</a>
               </Button>
             </div>
+
+            <p className="text-xs text-muted-foreground mt-2">
+              Place your resume PDF at <code className="bg-muted px-1 rounded">/public/resume.pdf</code> to enable the download button.
+            </p>
 
             <div className="flex items-center gap-4">
               <a

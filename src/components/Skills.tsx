@@ -20,10 +20,16 @@ const skillCategories = [
     skills: ["Jest", "Postman", "Unit Testing", "Debugging", "TensorFlow", "API Integration"],
   },
   {
+    title: "Soft Skills",
+    skills: ["Communication", "Problem Solving", "Teamwork", "Adaptability", "Time Management", "Critical Thinking", "Leadership"],
+  },
+  {
     title: "Professional",
     skills: ["Agile/Scrum", "UI/UX Collaboration", "End-User Support", "Networking", "Troubleshooting"],
   },
 ];
+
+// Update heading from "Technical Skills" to simply "Skills" for clarity
 
 const Skills = () => {
   const ref = useRef(null);
@@ -39,7 +45,7 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Technical <span className="text-gradient">Skills</span>
+            <span className="text-gradient">Skills</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>

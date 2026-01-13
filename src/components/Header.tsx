@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/sonner";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -85,6 +86,9 @@ const Header = () => {
                 )}
               </a>
             ))}
+            <Button variant="outline" size="sm" asChild>
+              <a href="/resume.pdf" download onClick={() => toast.success("Resume download started")}>Resume</a>
+            </Button>
             <Button variant="default" size="sm" asChild>
               <a href="#contact">Get in Touch</a>
             </Button>
@@ -123,7 +127,12 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-4 pt-2 space-y-2">
+                <Button variant="outline" className="w-full" asChild>
+                  <a href="/resume.pdf" download onClick={() => setIsMobileMenuOpen(false)}>
+                    Download Resume
+                  </a>
+                </Button>
                 <Button variant="default" className="w-full" asChild>
                   <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                     Get in Touch
