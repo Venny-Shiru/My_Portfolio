@@ -58,7 +58,7 @@ const Header = () => {
       <nav className="container-narrow mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:flex-wrap md:items-center gap-4 md:gap-8 overflow-x-auto">
+          <div className="hidden md:flex md:flex-wrap md:items-center md:ml-auto gap-4 md:gap-8 overflow-x-auto">
             {navLinks.map((link) => (
               <a
                 key={link.name}
