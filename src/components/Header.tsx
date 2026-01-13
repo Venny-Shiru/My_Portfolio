@@ -8,17 +8,37 @@ const navLinks = [
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Determine active section
+      const sections = navLinks.map((link) => link.href.slice(1));
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+
+      // If at top, no active section
+      if (window.scrollY < 100) {
+        setActiveSection("");
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -49,9 +69,20 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+                className={`text-sm font-medium transition-colors duration-200 relative ${
+                  activeSection === link.href.slice(1)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {link.name}
+                {activeSection === link.href.slice(1) && (
+                  <motion.span
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </a>
             ))}
             <Button variant="default" size="sm" asChild>
@@ -82,7 +113,11 @@ const Header = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
+                  className={`block py-3 px-4 rounded-lg transition-colors ${
+                    activeSection === link.href.slice(1)
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground hover:text-primary hover:bg-muted"
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
