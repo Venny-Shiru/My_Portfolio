@@ -76,10 +76,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            <p className="text-xs text-muted-foreground mt-2">
-              Place your resume PDF at <code className="bg-muted px-1 rounded">/public/resume.pdf</code> to enable the download button.
-            </p>
-
             <div className="flex items-center gap-4">
               <a
                 href="https://github.com"

@@ -57,13 +57,6 @@ const Header = () => {
     >
       <nav className="container-narrow mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a
-            href="#"
-            className="text-xl md:text-2xl font-bold text-gradient font-heading"
-          >
-            VW
-          </a>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
