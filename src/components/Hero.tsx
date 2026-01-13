@@ -3,7 +3,6 @@ import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TypeWriter from "@/components/TypeWriter";
 import profilePhoto from "@/assets/profile-photo.jpg";
-import { toast } from "@/components/ui/sonner";
 
 const roles = [
   "Junior Full-Stack Developer",
@@ -57,7 +56,6 @@ const Hero = () => {
                 <a
                   href="/resume.pdf"
                   download
-                  onClick={() => toast.success("Resume download started")}
                 >
                   <ArrowDown className="mr-2" />
                   Download Resume
