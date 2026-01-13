@@ -96,11 +96,6 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 md:order-2 flex justify-center"
           >
-            <motion.div
-              animate={{ rotate: [-1, 1, -1] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative"
-            >
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
@@ -113,7 +108,6 @@ const Hero = () => {
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-xl animate-pulse-slow" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-xl animate-pulse-slow" />
             </div>
-          </motion.div>
           </motion.div>
         </div>
 
