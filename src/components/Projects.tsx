@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import projectCanvasCrafters from "@/assets/project-canvas-crafters.jpg";
 import projectKilimoAi from "@/assets/project-kilimo-ai.jpg";
 import projectRoadMaintenance from "@/assets/project-road-maintenance.jpg";
+import projectAspirea from "@/assets/project-aspirea.svg";
 
 const projects = [
   {
@@ -31,6 +32,14 @@ const projects = [
     tech: ["Python", "YOLOv8", "OpenCV", "PyTorch", "Node.js", "Express", "MongoDB", "React", "Leaflet"],
     liveUrl: "https://road-maintenance-dashboard.netlify.app/",
     image: projectRoadMaintenance,
+  },
+  {
+    title: "Aspirea Career Portal",
+    description:
+      "A digital career companion for Kenyan learners, helping students explore careers, choose supporting subjects, assess their interests, and compare universities and TVET institutions as they plan their futures.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Career Assessment", "Education Platform"],
+    liveUrl: "https://aspirea.netlify.app/",
+    image: projectAspirea,
   },
 ];
 

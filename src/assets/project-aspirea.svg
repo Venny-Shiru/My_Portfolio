@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Aspirea career planning dashboard</title>
+  <desc id="desc">A warm illustrated dashboard showing a learner career roadmap.</desc>
+  <rect width="1200" height="800" fill="#f6efe3"/>
+  <circle cx="1030" cy="110" r="180" fill="#f4c95d" opacity=".55"/>
+  <circle cx="110" cy="720" r="220" fill="#d96b45" opacity=".18"/>
+  <rect x="90" y="82" width="1020" height="636" rx="34" fill="#fffdf8" stroke="#1c4037" stroke-width="8"/>
+  <rect x="90" y="82" width="1020" height="98" rx="34" fill="#1c4037"/>
+  <circle cx="150" cy="131" r="18" fill="#f4c95d"/>
+  <text x="190" y="143" fill="#fffdf8" font-family="Georgia, serif" font-size="38" font-weight="700">Aspirea</text>
+  <text x="880" y="140" fill="#f4c95d" font-family="Arial, sans-serif" font-size="20" font-weight="700">PLAN YOUR PATH</text>
+  <text x="150" y="265" fill="#1c4037" font-family="Georgia, serif" font-size="48" font-weight="700">Dream. Plan. Achieve.</text>
+  <text x="150" y="310" fill="#5b6b63" font-family="Arial, sans-serif" font-size="22">A clearer route from subjects to a future you love.</text>
+  <rect x="150" y="374" width="860" height="184" rx="22" fill="#edf5ed"/>
+  <path d="M225 478 C355 395 430 525 555 443 S765 388 930 465" fill="none" stroke="#d96b45" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="225" cy="478" r="25" fill="#1c4037" stroke="#fffdf8" stroke-width="8"/>
+  <circle cx="555" cy="443" r="25" fill="#1c4037" stroke="#fffdf8" stroke-width="8"/>
+  <circle cx="930" cy="465" r="25" fill="#d96b45" stroke="#fffdf8" stroke-width="8"/>
+  <text x="178" y="622" fill="#1c4037" font-family="Arial, sans-serif" font-size="21" font-weight="700">Explore careers</text>
+  <text x="510" y="622" fill="#1c4037" font-family="Arial, sans-serif" font-size="21" font-weight="700">Choose subjects</text>
+  <text x="877" y="622" fill="#1c4037" font-family="Arial, sans-serif" font-size="21" font-weight="700">Take the next step</text>
+</svg>
